@@ -74,20 +74,22 @@ class WeeklyTempApp():
 
                 days[index] = {"day": day["day"], "temp": currentDay}
 
-                self.days = days
-
             except ValueError as e:
                 print(f"Error: ingresa un número válido.")
                 return
             
-        self.maxTemp()
+        self.days = days    
+        self.maxTemp(True)
 
         print("\nTemperaturas de la semana actualizadas.")
 
-    # Función que nos permite obtener la temperatura máxima y el dia en que ocurrió.
-    def maxTemp(self):
+        self.extremeTemps(True)
 
-        print("\nVer la temperatura máxima.")
+    # Función que nos permite obtener la temperatura máxima y el dia en que ocurrió.
+    def maxTemp(self, default=False):
+
+        if default == False:
+            print("\nVer la temperatura máxima.")
 
         days = self.days
 
@@ -99,7 +101,8 @@ class WeeklyTempApp():
                 max_temp = day["temp"]
                 max_day = day["day"]
 
-        print(f"\nLa temperatura máxima de la semana fue {max_temp}°C el dia {max_day}.")
+        if default == False:
+            print(f"\nLa temperatura máxima de la semana fue {max_temp}°C el dia {max_day}.")
 
         self.max_temp = max_temp
 
@@ -168,9 +171,10 @@ class WeeklyTempApp():
         else:
             print(f"\nLos dias que estuvieron sobre el promedio semanal de {average}°C fueron {string}")
 
-    def extremeTemps(self):
+    def extremeTemps(self, alert=False):
 
-        print("\nVer temperaturas extremas (+40°C o -0°C) de la semana.")
+        if alert == False:
+            print("\nVer temperaturas extremas (+40°C o -0°C) de la semana.")
 
         days = self.days
 
@@ -202,13 +206,19 @@ class WeeklyTempApp():
                 string_min += f"{day["temp"]}°C el dia {day["day"]}, "
 
         if not extreme_max_temps:
-            print("\nNo hay dias con temperatura sobre los 40°C.")
+            if alert == False:
+                print("\nNo hay dias con temperatura sobre los 40°C.")
         else:
+            if alert == True:
+                print("\n¡ALERTA!")
             print(f"\nLas temperaturas sobre los 40°C fueron {string_max}")
 
         if not extreme_min_temps:
-            print("\nNo hay dias con temperatura bajo 0°C.")
+            if alert == False:
+                print("\nNo hay dias con temperatura bajo 0°C.")
         else:
+            if alert == True:
+                print("\n¡ALERTA!")
             print(f"\nLas temperaturas bajo 0°C fueron {string_min}")
 
     # Función que nos permite ver todos los datos registrados
@@ -223,7 +233,6 @@ class WeeklyTempApp():
                 print(f"\n{day["day"]} = {day["temp"]}°C.")
             else:
                 print(f"{day["day"]} = {day["temp"]}°C.")
-
 
 # Función responsable de el loop de la app
 def main():
