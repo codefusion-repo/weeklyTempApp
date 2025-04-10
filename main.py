@@ -19,7 +19,7 @@ class WeeklyTempApp():
         self.max_temp = max_temp
         self.average = average
         
-    # Función principal que ejecuta las funciones secundarias dependiendo de la elección del usuario.
+    # Función principal responsable de el loop del programa y que ejecuta las funciones secundarias dependiendo de la elección del usuario.
     def menu(self):
         while True:
             print("\nMENÚ")
@@ -234,7 +234,7 @@ class WeeklyTempApp():
             else:
                 print(f"{day["day"]} = {day["temp"]}°C.")
 
-# Función responsable de el loop de la app
+# Función base de el programa
 def main():
     app = WeeklyTempApp()
 
