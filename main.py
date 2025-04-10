@@ -1,7 +1,7 @@
 from typing import List
 
 class WeeklyTempApp():
-    # Función que nos permite agregar nuestras variables globales al self de la clase
+    # Método que nos permite agregar nuestras variables globales al self de la clase
     def __init__(
         self, 
 
@@ -19,7 +19,7 @@ class WeeklyTempApp():
         self.max_temp = max_temp
         self.average = average
         
-    # Función principal responsable de el loop del programa y que ejecuta las funciones secundarias dependiendo de la elección del usuario.
+    # Método principal responsable de el loop del programa y que ejecuta las funciones secundarias dependiendo de la elección del usuario.
     def menu(self):
         while True:
             print("\nMENÚ")
@@ -57,7 +57,7 @@ class WeeklyTempApp():
                 print(f"Error: Ingresa una opción válida.")
                 return
         
-    # Función que recibe las temperaturas y las almacena en el array/lista "days"
+    # Método que recibe las temperaturas y las almacena en el array/lista "days"
     def inputTemp(self):
         print("\nIngresa cuantos grados celsius° hubo en cada dia de la semana.")
 
@@ -85,7 +85,7 @@ class WeeklyTempApp():
 
         self.extremeTemps(True)
 
-    # Función que nos permite obtener la temperatura máxima y el dia en que ocurrió.
+    # Método que nos permite obtener la temperatura máxima y el dia en que ocurrió.
     def maxTemp(self, default=False):
 
         if default == False:
@@ -106,7 +106,7 @@ class WeeklyTempApp():
 
         self.max_temp = max_temp
 
-    # Función que nos permite obtener la temperatura minima y el dia en que ocurrió.
+    # Método que nos permite obtener la temperatura minima y el dia en que ocurrió.
     def minTemp(self):
 
         print("\nVer la temperatura minima.")
@@ -123,7 +123,7 @@ class WeeklyTempApp():
 
         print(f"\nLa temperatura minima de la semana fue {min_temp}°C el dia {min_day}.")
 
-    # Función que nos permite calcular el promedio semanal
+    # Método que nos permite calcular el promedio semanal
     def weekAverage(self):
 
         print("\nVer el promedio semanal.")
@@ -143,7 +143,7 @@ class WeeklyTempApp():
 
         self.average = average
 
-    # Función que nos permite obtener los dias que estuvieron sobre el promedio de temperatura
+    # Método que nos permite obtener los dias que estuvieron sobre el promedio de temperatura
     def aboutWeekAverage(self):
 
         print("\nVer temperaturas sobre el promedio semanal.")
@@ -171,6 +171,7 @@ class WeeklyTempApp():
         else:
             print(f"\nLos dias que estuvieron sobre el promedio semanal de {average}°C fueron {string}")
 
+    # Método que nos permite obtener las temperaturas extremas de la semana
     def extremeTemps(self, alert=False):
 
         if alert == False:
@@ -221,7 +222,7 @@ class WeeklyTempApp():
                 print("\n¡ALERTA!")
             print(f"\nLas temperaturas bajo 0°C fueron {string_min}")
 
-    # Función que nos permite ver todos los datos registrados
+    # Método que nos permite ver todos los datos registrados
     def getWeekTemps(self):
 
         print("\nVer temperaturas de la semana.")
@@ -242,6 +243,6 @@ def main():
 
     app.menu()
     
-# Función que permite ejecutar la app desde el terminal
+# Condición que permite ejecutar la app desde el terminal
 if __name__ == "__main__":
     main()
