@@ -1,7 +1,7 @@
 from typing import List
 
 class WeeklyTempApp():
-    # Función que nos permite agregar nuestra variable days al self de la clase
+    # Función que nos permite agregar nuestras variables globales al self de la clase
     def __init__(
         self, 
 
